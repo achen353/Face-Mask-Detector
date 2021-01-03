@@ -1,0 +1,5 @@
+matplotlib~=3.3.2
+numpy~=1.19.2
+tensorflow~=2.4.0
+scikit-learn~=0.24.0
+opencv-python-headless~=4.5.1

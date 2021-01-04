@@ -25,9 +25,9 @@ def main():
 
     # Initialize model save path
     mask_detector_model_path = "./mask_detector_models/mask_detector_" + args.model + ".h5"
-    face_confidence = args.confidence
+    confidence_threshold = args.confidence
     print("Mask detector save path: " + mask_detector_model_path)
-    print("Face detector thresholding confidence: " + str(face_confidence))
+    print("Face detector thresholding confidence: " + str(confidence_threshold))
 
     # Load the face detector model from disk
     print("[INFO] loading face detector model...")
@@ -49,7 +49,7 @@ def main():
         flags, frame = capture.read()
 
         # Detect faces in the frame and determine if they are wearing a face mask or not
-        detect_mask(frame, face_detector, mask_detector, face_confidence)
+        detect_mask(frame, face_detector, mask_detector, confidence_threshold)
 
         # Show the output frame
         cv2.imshow("Frame", frame)

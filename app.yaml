@@ -1,0 +1,31 @@
+runtime: python
+env: flex
+
+runtime_config:
+    python_version: 3
+
+handlers:
+- url: /favicon\.ico
+  static_files: static/favicon_io/favicon.ico
+  upload: static/favicon_io/favicon\.ico
+- url: /_ah/start
+  script: auto
+- url: /_ah/stop
+  script: auto
+- url: /
+  script: auto
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 8
+  cool_down_period_sec: 180
+  cpu_utilization:
+    target_utilization: 0.7
+  target_concurrent_requests: 100
+
+resources:
+    cpu: 1
+    memory_gb: 1
+    disk_size_gb: 10
+
+entrypoint: gunicorn -b 0.0.0.0:8080 main:server

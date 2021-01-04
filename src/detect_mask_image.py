@@ -7,7 +7,7 @@ import cv2
 import os
 
 
-def detect_mask(img, face_detector, mask_detector, face_confidence, imshow=True):
+def detect_mask(img, face_detector, mask_detector, confidence_threshold, image_show=True):
     # Initialize the labels and colors for bounding boxes
     num_class = mask_detector.layers[-1].get_output_at(0).get_shape()[-1]
     labels, colors = None, None
@@ -29,13 +29,18 @@ def detect_mask(img, face_detector, mask_detector, face_confidence, imshow=True)
     face_detector.setInput(blob)
     detections = face_detector.forward()
 
+    # Record status
+    # MFN: 0 is "mask correctly" and 1 is "no mask"
+    # RMFD: 0 is "mask correctly", 1 is "mask incorrectly", and 2 is "no mask"
+    status = 0
+
     # Loop over the detections
     for i in range(0, detections.shape[2]):
         # Extract the confidence (i.e., probability) associated with the detection
         confidence = detections[0, 0, i, 2]
 
         # Filter out weak detections by ensuring the confidence is greater than the minimum confidence
-        if confidence > face_confidence:
+        if confidence > confidence_threshold:
             # Compute the (x, y)-coordinates of the bounding box for the object
             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
             (start_x, start_y, end_x, end_y) = box.astype("int")
@@ -62,19 +67,33 @@ def detect_mask(img, face_detector, mask_detector, face_confidence, imshow=True)
             label = labels[label_idx]
             color = colors[label_idx]
 
+            # Update the status
+            if num_class == 3:
+                if label_idx == 0:
+                    temp = 1
+                elif label_idx == 1:
+                    temp = 0
+                else:
+                    temp = 2
+                status = max(status, temp)
+            elif num_class == 2:
+                status = max(label_idx)
+
             # Include the probability in the label
             label = "{}: {:.2f}%".format(label, max(prediction) * 100)
 
             # Display the label and bounding box rectangle on the output frame
             cv2.putText(img, label, (start_x, start_y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
             cv2.rectangle(img, (start_x, start_y), (end_x, end_y), color, 2)
+        else:
+            break
 
-    if imshow is True:
+    if image_show is True:
         # Show the output image
         cv2.imshow("Output", img)
         cv2.waitKey(0)
 
-    return img
+    return status, img
 
 
 def main():
@@ -99,9 +118,9 @@ def main():
 
     # Initialize model save path
     mask_detector_model_path = "./mask_detector_models/mask_detector_" + args.model + ".h5"
-    face_confidence = args.confidence
+    confidence_threshold = args.confidence
     print("Mask detector save path: " + mask_detector_model_path)
-    print("Face detector thresholding confidence: " + str(face_confidence))
+    print("Face detector thresholding confidence: " + str(confidence_threshold))
 
     # Load the face detector model from disk
     print("[INFO] loading face detector model...")
@@ -115,7 +134,7 @@ def main():
 
     # Read the image and detect mask
     img = cv2.imread(args.image)
-    detect_mask(img, face_detector, mask_detector, face_confidence)
+    detect_mask(img, face_detector, mask_detector, confidence_threshold)
 
 
 if __name__ == '__main__':

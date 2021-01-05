@@ -28,5 +28,6 @@ __pycache__/
 /data/*
 /example_images/*
 /figures/*
+/readme_assets/*
 
 # data

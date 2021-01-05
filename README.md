@@ -10,10 +10,6 @@
 </div>
 
 <div align="center">
-    <img src="./readme_assets/readme_cover.png"/>
-</div>
-
-<div align="center">
     <!-- Python version -->
     <img src="https://img.shields.io/badge/python-v3.8-blue?style=flat-square"/>
     <!-- Python version -->
@@ -24,6 +20,10 @@
     <img src="https://img.shields.io/github/forks/achen353/Face-Mask-Detector?style=flat-square"/>
     <!-- Python version -->
     <img src="https://img.shields.io/github/issues/achen353/Face-Mask-Detector?style=flat-square"/>
+</div>
+
+<div align="center">
+    <img src="./readme_assets/readme_cover.png"/>
 </div>
 
 ## Table of Contents
@@ -47,6 +47,15 @@
   (2) improper mask wearing, and (3) no mask scenarios
 
 ## About
+This app detects human faces and proper mask wearing in images and webcam streams. Under the COVID-19 pandemic, wearing
+mask has shown to be an effective means to control the spread of virus. The demand for an effective mask detection on 
+embedded systems of limited computing capabilities has surged, especially in highly populated areas such as public 
+transportations, hospitals, etc. Trained on MobileNetV2, a state-of-the-art lightweight deep learning model on 
+image classification, the app is computationally efficient to deploy to help control the spread of the disease.
+
+While many work on face mask detection has been developed since the start of the pandemic, few distinguishes whether a
+mask is worn correctly or incorrectly. Given the discovery of the new coronavirus variant in UK, we aim to provide a 
+more precise detection model to help strengthen enforcement of mask mandate around the world.
 
 ## Frameworks and Libraries
 - __[OpenCV](https://opencv.org/):__ computer vision library used to process images
@@ -91,7 +100,7 @@ accuracy on their validation data.
 
 MFN Model                             |  RMFD Model
 :------------------------------------:|:--------------------------------------:
-![]("./figures/train_plot_MFN.jpg")   |  ![]("./figures/train_plot_RMFD.jpg") 
+![](./figures/train_plot_MFN.jpg)   |  ![](./figures/train_plot_RMFD.jpg) 
 
 
 However, the MFN model sometimes classifies `face_no_mask` as `face_with_mask_incorrectly`. Though this would not affect

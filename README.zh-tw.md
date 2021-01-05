@@ -32,7 +32,7 @@
 
 <br/>
 
-*閱讀 [英文](README.zh-tw.md) 版本 README.md。*
+*閱讀 [英文](README.md) 版本 README.md。*
 
 ## 目錄
 - [特色](#特色)

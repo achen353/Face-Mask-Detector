@@ -23,6 +23,10 @@ parser.add_argument("--dataset", "-dataset",
                     help="dataset to train the model on")
 args = parser.parse_args()
 
+# Validate argument
+if args.dataset != "MFN" and args.dataset != "RMFD":
+    raise ValueError("Please provide a valid dataset choice: `MFN` or `RMFD`.")
+
 # Change the working directory from src to root if needed
 current_full_dir = os.getcwd()
 print("Current working directory: " + current_full_dir)

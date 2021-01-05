@@ -77,7 +77,7 @@ def detect_mask(img, face_detector, mask_detector, confidence_threshold, image_s
                     temp = 2
                 status = max(status, temp)
             elif num_class == 2:
-                status = max(label_idx)
+                status = max(status, label_idx)
 
             # Include the probability in the label
             label = "{}: {:.2f}%".format(label, max(prediction) * 100)

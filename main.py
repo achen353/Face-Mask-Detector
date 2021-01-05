@@ -110,21 +110,19 @@ app.layout = html.Div(
                                         ##### What am I looking at?
             
                                         This app detects human faces and proper mask wearing in images and webcam 
-                                        streams. Under the COVID-19 pandemic, mask wearing has shown to be 
-                                        an effective means to combat the spread of the virus. In highly populated areas, 
-                                        such as public transportation, hospitals, etc., there effective mask detection 
-                                        on hardware of limited computing capabilities. Trained on MobileNetV2, the app 
-                                        is computationally efficient to integrate into embedded systems to 
-                                        help control the pandemic.
+                                        streams. Under the COVID-19 pandemic, the demand for an effective mask 
+                                        detection on embedded systems of limited computing capabilities has surged.
+                                        Trained on MobileNetV2, the app is computationally efficient to deploy to 
+                                        help control the spread of the disease.
                                         
                                         ##### More about this Dash app
             
-                                        The MFN Model is trained on [MaskedFace-Net dataset](https://github.com/cabani/MaskedFace-Net) to detect 3 scenarios: 
+                                        The MFN Model is capable of detecting 3 scenarios: 
                                         (1) incorrect mask wearing, (2) correct mask wearing and (3) no mask. 
-                                        The RMFD model is trained on 
-                                        [Real-World Masked Face Dataset](https://github.com/X-zhangyang/Real-World-Masked-Face-Dataset) 
-                                        to detect 2 scenarios: (1) mask worn and (2) no mask. To learn more about 
-                                        the project, please visit the [project repo](https://github.com/achen353/Face-Mask-Detector).
+                                        The RMFD model is trained to classify 2 scenarios: 
+                                        (1) mask worn and (2) no mask. To learn more about 
+                                        the project, please visit the 
+                                        [project repository](https://github.com/achen353/Face-Mask-Detector).
                                         """
                                     )
                                 )
@@ -245,7 +243,7 @@ app.layout = html.Div(
                                 "display": "flex",
                                 "justify-content": "center",
                                 "align-items": "center",
-                                "margin-top": "5%",
+                                "margin-top": "3%",
                             },
                         ),
                         html.Div(
@@ -308,14 +306,14 @@ def display_video_control(detection_mode):
             "display": "flex",
             "justify-content": "center",
             "align-items": "center",
-            "margin-top": "5%",
+            "margin-top": "3%",
         }
     return {
         "visibility": "visible",
         "display": "flex",
         "justify-content": "center",
         "align-items": "center",
-        "margin-top": "5%",
+        "margin-top": "3%",
     }
 
 
@@ -454,7 +452,7 @@ def play_alert_audio(n_intervals, detection_mode, model):
         else:
             if status == 1 and alarm_on is True:
                 return no_mask_src, True
-    return no_mask_src, False
+    return "", False
 
 
 if __name__ == '__main__':

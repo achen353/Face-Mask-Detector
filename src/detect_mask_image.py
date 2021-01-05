@@ -116,6 +116,14 @@ def main():
         os.chdir(root)
         print("Changed working directory to: " + root)
 
+    # Validate arguments
+    if not os.path.isfile(args.image):
+        raise ValueError("Please provide a valid path relative to the root directory.")
+    if args.model != "MFN" and args.model != "RMFD":
+        raise ValueError("Please provide a valid model choice: `MFN` or `RMFD`.")
+    if args.confidence > 1 or args.confidence < 0:
+        raise ValueError("Please provide a valid confidence value between 0 and 1 (inclusive).")
+
     # Initialize model save path
     mask_detector_model_path = "./mask_detector_models/mask_detector_" + args.model + ".h5"
     confidence_threshold = args.confidence
@@ -134,6 +142,9 @@ def main():
 
     # Read the image and detect mask
     img = cv2.imread(args.image)
+    if img is None:
+        raise ValueError("Your file type is not supported.")
+
     detect_mask(img, face_detector, mask_detector, confidence_threshold)
 
 

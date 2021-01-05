@@ -18,7 +18,7 @@ import os
 
 # Instantiate an argument parser and parse the arguments
 parser = argparse.ArgumentParser()
-parser.add_argument("--dataset", "-dataset",
+parser.add_argument("--dataset", "-d",
                     default='MFN', choices=['MFN', 'RMFD'],
                     help="dataset to train the model on")
 args = parser.parse_args()

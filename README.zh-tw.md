@@ -30,6 +30,8 @@
     <img src="./readme_assets/readme_cover.png"/>
 </div>
 
+<br/>
+
 *閱讀 [英文](README.zh-tw.md) 版本 README.md。*
 
 ## 目錄
@@ -46,10 +48,10 @@
 - [特許條款](#特許條款)
 
 ## 特色
-- __輕量化模型:__  本專案所建立的 MFN 和 RMFD 模型分別只有 `2,422,339` 和 `2,422,210` 個參數。
-- __偵測多個人臉:__ 能夠偵測一張圖或影格內多個人臉。
-- __支援電腦攝影鏡頭:__ 能夠偵測照片及影像中的口罩配戴。
-- __偵測非正確口罩:__ 能夠偵測非正確口罩配戴（例：下巴未包覆完全、鼻子露出、鼻子與嘴巴皆露出）。
+- __輕量化模型：__  本專案所建立的 MFN 和 RMFD 模型分別只有 `2,422,339` 和 `2,422,210` 個參數。
+- __偵測多個人臉：__ 能夠偵測一張圖或影格內多個人臉。
+- __支援電腦攝影鏡頭：__ 能夠偵測照片及影像中的口罩配戴。
+- __偵測非正確口罩：__ 能夠偵測非正確口罩配戴（例：下巴未包覆完全、鼻子露出、鼻子與嘴巴皆露出）。
 
 ## 關於
 此程式能夠偵測圖片或影像中的人臉並分辨是否有正確配戴口罩。
@@ -62,13 +64,13 @@
 希望能夠近一步加強口罩配戴規定及實施。
 
 ## 運用的框架與函式庫
-- __[OpenCV](https://opencv.org/):__ 用於處理影像及影格的電腦視覺函式庫
-- __[OpenCV DNN Face Detector](https://github.com/opencv/opencv/blob/3.4.0/samples/dnn/resnet_ssd_face_python.py):__ 
+- __[OpenCV](https://opencv.org/) ：__ 用於處理影像及影格的電腦視覺函式庫
+- __[OpenCV DNN Face Detector](https://github.com/opencv/opencv/blob/3.4.0/samples/dnn/resnet_ssd_face_python.py) ：__ 
   用於偵測人臉的 Caffe 深度學習 Single Shot-Multibox Detector（SSD）模型
-- __[Tensorflow](https://www.tensorflow.org/) / [Keras](https://keras.io/):__ 用於建立此專案模型的主要深度學習框架
-- __[MobileNet V2](https://arxiv.org/abs/1801.04381):__ 輕量化影像分類模型，
+- __[Tensorflow](https://www.tensorflow.org/) / [Keras](https://keras.io/) ：__ 用於建立此專案模型的主要深度學習框架
+- __[MobileNet V2](https://arxiv.org/abs/1801.04381) ：__ 輕量化影像分類模型，
   在 ImageNet 影像分類上達到 71.3% Top-1 正確率及 90.1% Top-5 正確率
-- __[Dash](https://plotly.com/dash/):__ 建立在 Plotly.js、React 和 Flask 之上的前端框架，此專案中用於程式展示
+- __[Dash](https://plotly.com/dash/) ：__ 建立在 Plotly.js、React 和 Flask 之上的前端框架，此專案中用於程式展示
 
 ## 資料集
 我們提供訓練於兩個不同資料集（RMFD 資料集和 MFN 資料集）的模型。
@@ -159,7 +161,7 @@ Note:
 ## Dash 程式展示
 本專案之程式展示 [在這裡](https://face-mask-detection-300106.wl.r.appspot.com)，目前仍在測試階段。
 
-### Run the app yourself
+### 在你的電腦上執行 Dash 程式展示
 1. 將 `app.run_server(host='0.0.0.0', port=8080, debug=True)` 修改為 `app.run_server(debug=True)`：
 2. 執行下列指令：
 ```

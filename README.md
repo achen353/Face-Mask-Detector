@@ -30,6 +30,8 @@
     <img src="./readme_assets/readme_cover.png"/>
 </div>
 
+<br/>
+
 *Read this in [繁體中文](README.zh-tw.md).*
 
 ## Table of Contents

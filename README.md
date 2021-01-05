@@ -9,6 +9,8 @@
     Trained on Tensorflow/Keras. Deployed using Dash on Google App Engine. 
 </div>
 
+<br/>
+
 <div align="center">
     <!-- Python version -->
     <img src="https://img.shields.io/badge/python-v3.8-blue?style=flat-square"/>
@@ -21,6 +23,8 @@
     <!-- Python version -->
     <img src="https://img.shields.io/github/issues/achen353/Face-Mask-Detector?style=flat-square"/>
 </div>
+
+<br/>
 
 <div align="center">
     <img src="./readme_assets/readme_cover.png"/>

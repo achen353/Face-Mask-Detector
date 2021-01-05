@@ -26,6 +26,8 @@
     <img src="./readme_assets/readme_cover.png"/>
 </div>
 
+*Read this in [繁體中文](README.zh-tw.md).*
+
 ## Table of Contents
 - [Features](#features)
 - [About](#about)
@@ -40,14 +42,16 @@
 - [License](#license)
 
 ## Features
-- __Lightweight models:__  only `2422339` and `2422210` parameters for the MFN and RMFD models, respectively
-- __Detection of multiple faces:__: able to detect multiple faces in one frame
-- __Support for detection in webcam stream:__: our app supports detection in images and video streams 
-- __Support for detection of improper mask wearing:__ our MFN model is able to detect (1) proper mask wearing, 
-  (2) improper mask wearing, and (3) no mask scenarios
+- __Lightweight models:__  only `2,422,339` and `2,422,210` parameters for the MFN and RMFD models, respectively
+- __Detection of multiple faces:__ able to detect multiple faces in one frame
+- __Support for detection in webcam stream:__ our app supports detection in images and video streams 
+- __Support for detection of improper mask wearing:__ our MFN model is able to detect improper mask wearing including
+  (1) uncovered chin, (2) uncovered nose, and (3) uncovered nose and mouth.
 
 ## About
-This app detects human faces and proper mask wearing in images and webcam streams. Under the COVID-19 pandemic, wearing
+This app detects human faces and proper mask wearing in images and webcam streams. 
+
+Under the COVID-19 pandemic, wearing
 mask has shown to be an effective means to control the spread of virus. The demand for an effective mask detection on 
 embedded systems of limited computing capabilities has surged, especially in highly populated areas such as public 
 transportations, hospitals, etc. Trained on MobileNetV2, a state-of-the-art lightweight deep learning model on 
@@ -64,38 +68,38 @@ more precise detection model to help strengthen enforcement of mask mandate arou
 - __[Tensorflow](https://www.tensorflow.org/) / [Keras](https://keras.io/):__ deep learning framework used to build and train our models
 - __[MobileNet V2](https://arxiv.org/abs/1801.04381):__ lightweight pre-trained model available in Keras Applications; 
   used as a base model for our transfer learning
-- __[Dash](https://plotly.com/dash/):__ framework built upon Plotly.js, React and Flask; used to built the demo app
+- __[Dash](https://plotly.com/dash/):__ framework built upon Plotly.js, React and Flask; used built the demo app
 
 ## Datasets
 We provide two models trained on two different datasets. 
 Our RMFD dataset is built from the [Real World Masked Face Dataset](https://github.com/X-zhangyang/Real-World-Masked-Face-Dataset) 
-and the MFN dataset is built from the [MaskedFace-Net](https://github.com/cabani/MaskedFace-Net).
+and the MFN dataset is built from the [MaskedFace-Net](https://github.com/cabani/MaskedFace-Net) and 
+[Flickr-Faces-HQ Dataset (FFHQ)](https://github.com/NVlabs/ffhq-dataset).
 
 ### RMFD dataset
 This dataset consists of __4,408__ images:
 - `face_no_mask`: 2,204 images
 - `face_with_mask`: 2,204 images
 
-Each image is a cropped real-world face image of unfixed sizes. The `face_no_mask` data is randomly sampled from the 90568 no mask
+Each image is a cropped real-world face image of unfixed sizes. The `face_no_mask` data is randomly sampled from the 90,568 no mask
 data from the Real World Masked Face Dataset and the `face_with_mask` data entirely provided by the original dataset.
 
 ### MFN dataset
-This dataset consists of 200,627 images:
+This dataset consists of __200,627__ images:
 - `face_with_mask_correctly`: 67,193 images
 - `face_with_mask_incorrectly`: 66,899 images
 - `face_no_mask`: 66,535 images
 
 The `face_with_mask_correctly` and `face_with_mask_incorrectly` classes consist of the resized 128*128 images from 
 the original MaskedFace-Net work without any sampling. The `face_no_mask` is built from the 
-[Flickr-Faces-HQ Dataset (FFHQ)](https://github.com/NVlabs/ffhq-dataset) upon which the MaskedFace-Net data was created.
-Both `face_with_mask_correctly` and `face_with_mask_incorrectly` are morphed mask-wearing images and
-`face_with_mask_incorrectly` consists of 10% uncovered chin, 10% uncovered nose, and 80% uncovered nose and mouth images.
+Flickr-Faces-HQ Dataset (FFHQ) upon which the MaskedFace-Net data was created.
+All images in MaskedFace-Net are morphed mask-wearing images and `face_with_mask_incorrectly` consists of 10% uncovered chin, 10% uncovered nose, and 80% uncovered nose and mouth images.
 
 ### Download
 Due to the large volume of data, the direct link to download the datasets will be available soon!
 
 ## Training Results
-Both models are trained on 80% of their respectively dataset and validated on the other 20%. They both achieved 99%
+Both models are trained on 80% of their respectively dataset and validated/tested on the other 20%. They both achieved 99%
 accuracy on their validation data.
 
 MFN Model                             |  RMFD Model
@@ -155,7 +159,7 @@ Note:
 - `<dataset>` should be of `str` type; accepted values are `MFN` and `RMFD` with default value `MFN`
 
 ## Dash App Demo
-The demo of the app is available [here](https://face-mask-detection-300106.wl.r.appspot.com).
+The demo of the app is available [here](https://face-mask-detection-300106.wl.r.appspot.com); it is still under testing.
 
 ### Run the app yourself
 1. Modify `app.run_server(host='0.0.0.0', port=8080, debug=True)` to `app.run_server(debug=True)`:

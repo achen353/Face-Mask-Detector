@@ -14,13 +14,13 @@
 <div align="center">
     <!-- Python version -->
     <img src="https://img.shields.io/badge/python-v3.8-blue?style=flat-square"/>
-    <!-- Python version -->
+    <!-- Last commit -->
     <img src="https://img.shields.io/github/last-commit/achen353/Face-Mask-Detector?style=flat-square"/>
-    <!-- Python version -->
+    <!-- Stars -->
     <img src="https://img.shields.io/github/stars/achen353/Face-Mask-Detector?style=flat-square"/>
-    <!-- Python version -->
+    <!-- Forks -->
     <img src="https://img.shields.io/github/forks/achen353/Face-Mask-Detector?style=flat-square"/>
-    <!-- Python version -->
+    <!-- Open issues -->
     <img src="https://img.shields.io/github/issues/achen353/Face-Mask-Detector?style=flat-square"/>
 </div>
 

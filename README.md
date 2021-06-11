@@ -102,7 +102,7 @@ Flickr-Faces-HQ Dataset (FFHQ) upon which the MaskedFace-Net data was created.
 All images in MaskedFace-Net are morphed mask-wearing images and `face_with_mask_incorrectly` consists of 10% uncovered chin, 10% uncovered nose, and 80% uncovered nose and mouth images.
 
 ### Download
-Due to the large volume of data, the direct link to download the datasets will be available soon!
+The dataset is now available [here](https://drive.google.com/file/d/1Y1Y67osv8UBKn_ANckCXPvY2aZqv1Cha/view?usp=sharing)! (June 11, 2021)
 
 ## Training Results
 Both models are trained on 80% of their respectively dataset and validated/tested on the other 20%. They both achieved 99%

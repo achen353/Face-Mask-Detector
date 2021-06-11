@@ -98,7 +98,7 @@
 其中 `face_with_mask_incorrectly` 的 10% 為下巴露出之圖片、10% 為鼻子露出之圖片、80% 為口鼻皆露出之圖片.
 
 ### 下載資料集
-由於資料集龐大，能夠直接下載數據的連結仍在製作中。
+資料集可以從這裡[下載](https://drive.google.com/file/d/1Y1Y67osv8UBKn_ANckCXPvY2aZqv1Cha/view?usp=sharing)。（2021/06/11）
 
 ## 訓練結果
 兩個模型皆使用相對應資料集內 80% 的數據作為訓練集、20％ 作為驗證集兼測試集。 
